@@ -1,0 +1,55 @@
+# Copyright 2020 The Cartographer Authors
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+#FROM osrf/ros:noetic-desktop-full
+FROM ros_carto
+
+ARG CARTOGRAPHER_VERSION=master
+
+# We require a GitHub access token to be passed.
+ARG github_token
+
+# Prevent any interaction required by apt-get.
+# https://stackoverflow.com/questions/22466255
+ARG DEBIAN_FRONTEND=noninteractive
+
+# ROS Noetic's base image doesn't ship with sudo and git.
+RUN apt-get update && apt-get install -y sudo git
+
+
+
+RUN apt-get install -y vim net-tools sudo
+
+ENV ROS_DISTRO="noetic"
+RUN apt-get install -y ros-$ROS_DISTRO-jackal*
+
+RUN apt-get install -y libignition-common3-graphics
+RUN apt-get install -y ros-$ROS_DISTRO-gazebo-* ros-$ROS_DISTRO-dwa-local-planner
+
+#--------------------
+COPY scripts/install.sh jackal_ros/scripts/
+COPY Shared_folder/jackal_teleop jackal_ros/jackal_teleop
+RUN jackal_ros/scripts/install.sh
+
+
+#--------------------
+
+COPY scripts/ros_entrypoint.sh /
+#ENTRYPOINT ["/ros_entrypoint.sh"]
+#CMD ["/bin/bash"]
+
+RUN rm -rf /var/lib/apt/lists/*
+# A BTRFS bug may prevent us from cleaning up these directories.
+# https://btrfs.wiki.kernel.org/index.php/Problem_FAQ#I_cannot_delete_an_empty_directory
+RUN rm -rf cartographer_ros catkin_ws || true

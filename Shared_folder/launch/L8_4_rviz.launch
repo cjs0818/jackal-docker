@@ -1,0 +1,15 @@
+<!-- rviz.launch -->
+<launch>
+  <!-- floorplan -->
+  <arg name="floorplan" default="/root/Shared_folder/KIST_map/L8_4.yaml"/>
+  <arg name="remap_map" default="floorplan"/>
+
+
+  <node pkg="map_server" type="map_server" name="map_server" output="screen" args="$(arg floorplan) map:=$(arg remap_map)">  
+    <param name="frame_id" value="odom" />
+    <param name="robot_description" command="$(find xacro)/xacro --inorder $(find jackal_description)/urdf/jackal.urdf.xacro" />
+  </node>
+  
+  <!-- rviz configuration -->  
+  <node name="rviz" pkg="rviz" type="rviz" args="-d /root/Shared_folder/KIST_map/map.rviz"/>
+</launch>

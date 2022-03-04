@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>jackal_teleop</name>
+  <version>1.2.6</version>
+  <description>
+    Provides teleoperation using keyboard for jackal.
+  </description>
+  <license>BSD</license>
+  <maintainer email="willson@robotis.com">Will Son</maintainer>
+  <buildtool_depend>catkin</buildtool_depend>
+  <depend>rospy</depend>
+  <depend>geometry_msgs</depend>
+</package>
