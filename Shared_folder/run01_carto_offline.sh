@@ -21,13 +21,14 @@ export JACKAL_LASER_3D_MODEL="os1-xx"
 
 cd $SF_DIR
 
-#cp $SF_DIR/urdf/$MY_ROBOT.urdf $CARTO_DIR/urdf/
+cp $SF_DIR/urdf/$MY_ROBOT.urdf $CARTO_DIR/urdf/
 cp -R $SF_DIR/jackal/jackal_description/urdf/accessories.urdf.xacro /opt/ros/$ROS_DISTRO/share/jackal_description/urdf/
 
 cp $SF_DIR/launch/$MY_ROBOT.launch $CARTO_DIR/launch/
 cp $SF_DIR/launch/demo_$MY_ROBOT.launch $CARTO_DIR/launch/
 cp $SF_DIR/launch/demo_${MY_ROBOT}_localization.launch $CARTO_DIR/launch/
 cp $SF_DIR/launch/offline_$MY_ROBOT.launch $CARTO_DIR/launch/
+cp $SF_DIR/launch/offline_node.launch $CARTO_DIR/launch/
 
 cp $SF_DIR/configuration_files/$MY_ROBOT.lua $CARTO_DIR/configuration_files/
 cp $SF_DIR/configuration_files/${MY_ROBOT}_localization.lua $CARTO_DIR/configuration_files/
