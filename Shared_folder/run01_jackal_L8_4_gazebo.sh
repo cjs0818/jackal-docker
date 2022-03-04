@@ -19,7 +19,7 @@ sudo cp $SF_DIR/jackal/jackal_navigation/launch/include/pointcloud_to_laserscan_
 
 #---- For gazebo world: 4h floor, L8 buildig with jackal
 #roslaunch jackal_gazebo jackal_world.launch config:=front_laser world_name:=/root/Shared_folder/worlds/L8_4_gazebo.world
-roslaunch $SF_DIR/launch/$GZ_LAUNCH_FILE world_name:=$SF_DIR/worlds/$GZ_WORLD_FILE laser_model:=$JACKAL_LASER_MODEL x_pos:=-8.5 y_pos:=7.7 z_pos:=1.0 yaw:=0
+roslaunch $SF_DIR/launch/$GZ_LAUNCH_FILE world_name:=$SF_DIR/worlds/$GZ_WORLD_FILE laser_model:=$JACKAL_LASER_3D_MODEL x_pos:=-8.5 y_pos:=7.7 z_pos:=1.0 yaw:=0
 
 
 
