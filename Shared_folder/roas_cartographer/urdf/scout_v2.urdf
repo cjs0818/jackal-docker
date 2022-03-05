@@ -1,0 +1,109 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="scout">
+
+  <xacro:property name="PI" value="3.1415926535897931"/>
+
+  <link name="base_link"/>
+
+  <link name="inertial_link"/>
+
+  <joint name="inertial_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="inertial_link"/>
+    <origin xyz="0 0 0.2365" rpy="0 0 0"/>
+  </joint>
+
+  <link name="front_left_wheel"/>
+
+  <link name="rear_left_wheel"/>
+
+  <link name="front_right_wheel"/>
+
+  <link name="rear_right_wheel"/>
+
+  <joint name="front_left_wheel_joint" type="continuous">
+    <parent link="base_link"/>
+    <child link="front_left_wheel"/>
+    <origin xyz="0.249 0.2915 0.165" rpy="0 0 0"/>
+    <axis xyz="0 1 0" rpy="0 0 0"/>
+  </joint>
+
+  <joint name="rear_left_wheel_joint" type="continuous">
+    <parent link="base_link"/>
+    <child link="rear_left_wheel"/>
+    <origin xyz="-0.249 0.2915 0.165" rpy="0 0 0"/>
+    <axis xyz="0 1 0" rpy="0 0 0"/>
+  </joint>
+
+  <joint name="front_right_wheel_joint" type="continuous">
+    <parent link="base_link"/>
+    <child link="front_right_wheel"/>
+    <origin xyz="0.249 -0.2915 0.165" rpy="0 0 0"/>
+    <axis xyz="0 1 0" rpy="0 0 0"/>
+  </joint>
+
+  <joint name="rear_right_wheel_joint" type="continuous">
+    <parent link="base_link"/>
+    <child link="rear_right_wheel"/>
+    <origin xyz="-0.249 -0.2915 0.165" rpy="0 0 0"/>
+    <axis xyz="0 1 0" rpy="0 0 0"/>
+  </joint>
+
+  <!--link name="top_plate">
+  </link>
+
+  <joint name="top_plate_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="top_plate"/>
+    <origin xyz="0 0 0.0955" rpy="0 0 0"/>
+  </joint-->
+
+  <link name="top_plate"/>
+
+  <joint name="top_plate_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="top_plate"/>
+    <origin xyz="0 0 0.332" rpy="0 0 0"/>
+  </joint>
+
+  <link name="os1_sensor"/>
+
+  <joint name="os1_sensor_joint" type="fixed">
+    <parent link="top_plate"/>
+    <child link="os1_sensor"/>
+    <origin xyz="0 0 0.418" rpy="0 0 0"/>
+  </joint>
+
+  <link name="laser_link"/>
+
+  <joint name="rplidar_joint" type="fixed">
+    <parent link="top_plate"/>
+    <child link="laser_link"/>
+    <origin xyz="0 0 0.118" rpy="0 0 0"/>
+  </joint>
+
+  <link name="gps_link"/>
+
+  <joint name="gps_joint" type="fixed">
+    <parent link="top_plate"/>
+    <child link="gps_link"/>
+    <origin xyz="0 0.135 0.32" rpy="0 0 0"/>
+  </joint>
+
+  <link name="front_camera_link"/>
+
+  <joint name="front_camera_joint" type="fixed">
+    <parent link="top_plate"/>
+    <child link="front_camera_link"/>
+    <origin xyz="0.339 0 0.0225" rpy="0 0 0"/>
+  </joint>
+
+  <link name="imu_link"/>
+
+  <joint name="imu_joint" type="fixed">
+    <parent link="top_plate"/>
+    <child link="imu_link"/>
+    <origin xyz="-0.07 -0.05 0.075" rpy="0 0 0"/>
+  </joint>
+
+</robot>

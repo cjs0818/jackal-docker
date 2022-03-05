@@ -36,7 +36,9 @@
   <arg name="launch_prefix" default=""/>
 
   <remap from="points2" to="os1_cloud_node/points" />
-  <remap from="imu" to="os1_cloud_node/imu" />
+  <remap from="imu" to="/imu/data" />
+  <remap from="odom" to="jackal_velocity_controller/odom" />
+  
   <include file="$(find cartographer_ros)/launch/offline_node.launch">
     <arg name="bag_filenames" value="$(arg bag_filenames)"/>
     <arg name="no_rviz" value="$(arg no_rviz)"/>

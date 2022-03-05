@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+
+<robot xmlns:xacro="http://ros.org/wiki/xacro" name="roas">
+
+  <xacro:property name="PI" value="3.1415926535897931"/>
+
+  <xacro:include filename="$(find roas_bringup)/urdf/include/os1.urdf.xacro"/>
+  <xacro:include filename="$(find roas_bringup)/urdf/include/d435.urdf.xacro"/>
+
+  <material name="Light_grey"><color rgba="0.9 0.92 0.93 1.0"/></material>
+
+  <link name="top_structure">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://roas_bringup/meshes/top_structure_roas.STL"/>
+      </geometry>
+      <material name="silver">
+        <color rgba="0.75 0.75 0.75 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://roas_bringup/meshes/top_structure_roas.STL"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="top_structure_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="top_structure"/>
+    <origin xyz="0 0 -0.065" rpy="0 0 0"/>
+  </joint>
+
+  <!-- 3DM-GX5-25 -->
+  <link name="gx5_imu_link"/>
+  <joint name="gx5_imu_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="gx5_imu_link"/>
+    <!--origin xyz="-0.184 0 0.21" rpy="${PI} 0 0"/-->
+    <origin xyz="0 -0.1 0.145" rpy="${PI} 0 0"/>
+  </joint>
+
+  <xacro:sensor_d435 parent="top_structure" name="camera">
+    <origin xyz="0.180 0 0.295" rpy="0 0 0"/>
+  </xacro:sensor_d435>
+
+  <xacro:sensor_os1 parent="base_link" name="os_sensor">
+    <origin xyz="0 0 0.402" rpy="0 0 0"/>
+  </xacro:sensor_os1>
+</robot>

@@ -1,0 +1,99 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="scout">
+
+  <link name="base_link"/>
+
+  <link name="front_left_wheel"/>
+
+  <link name="rear_left_wheel"/>
+
+  <link name="front_right_wheel"/>
+
+  <link name="rear_right_wheel"/>
+
+  <joint name="front_left_wheel_joint" type="continuous">
+    <parent link="base_link"/>
+    <child link="front_left_wheel"/>
+    <origin xyz="0.23 0.225 0.0875" rpy="0 0 0"/>
+    <axis xyz="0 1 0" rpy="0 0 0"/>
+  </joint>
+
+  <joint name="rear_left_wheel_joint" type="continuous">
+    <parent link="base_link"/>
+    <child link="rear_left_wheel"/>
+    <origin xyz="-0.23 0.225 0.0875" rpy="0 0 0"/>
+    <axis xyz="0 1 0" rpy="0 0 0"/>
+  </joint>
+
+  <joint name="front_right_wheel_joint" type="continuous">
+    <parent link="base_link"/>
+    <child link="front_right_wheel"/>
+    <origin xyz="0.23 -0.225 0.0875" rpy="0 0 0"/>
+    <axis xyz="0 1 0" rpy="0 0 0"/>
+  </joint>
+
+  <joint name="rear_right_wheel_joint" type="continuous">
+    <parent link="base_link"/>
+    <child link="rear_right_wheel"/>
+    <origin xyz="-0.23 -0.225 0.0875" rpy="0 0 0"/>
+    <axis xyz="0 1 0" rpy="0 0 0"/>
+  </joint>
+
+  <!--link name="top_plate">
+  </link>
+
+  <joint name="top_plate_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="top_plate"/>
+    <origin xyz="0 0 0.0955" rpy="0 0 0"/>
+  </joint-->
+
+  <link name="top_plate"/>
+
+  <joint name="top_plate_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="top_plate"/>
+    <origin xyz="0 0 0.233" rpy="0 0 0"/>
+  </joint>
+
+  <link name="velodyne_link"/>
+
+  <joint name="velodyne_joint" type="fixed">
+    <parent link="top_plate"/>
+    <child link="velodyne_link"/>
+    <origin xyz="0 0 0.325" rpy="0 0 0"/>
+  </joint>
+
+  <link name="laser_link"/>
+
+  <joint name="rplidar_joint" type="fixed">
+    <parent link="top_plate"/>
+    <child link="laser_link"/>
+    <origin xyz="0 0 0.235" rpy="0 0 0"/>
+  </joint>
+
+  <link name="gps_link"/>
+
+  <joint name="gps_joint" type="fixed">
+    <parent link="top_plate"/>
+    <child link="gps_link"/>
+    <origin xyz="0 0.135 0.24" rpy="0 0 0"/>
+  </joint>
+
+  <link name="front_camera_link"/>
+
+  <joint name="front_camera_joint" type="fixed">
+    <parent link="top_plate"/>
+    <child link="front_camera_link"/>
+    <origin xyz="0.23 0 0.019" rpy="0 0 0"/>
+  </joint>
+
+  <link name="imu_link"/>
+
+  <joint name="imu_joint" type="fixed">
+    <parent link="top_plate"/>
+    <child link="imu_link"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </joint>
+
+</robot>

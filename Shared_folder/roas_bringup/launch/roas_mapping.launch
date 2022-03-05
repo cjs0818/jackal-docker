@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<launch>
+  <!-- Run 3d mapping -->
+  <include file="$(find roas_cartographer)/launch/cartographer_3d.launch"/>
+
+  <!--node name="rviz" pkg="rviz" type="rviz" required="true" args="-d $(find roas_bringup)/rviz/3d_map.rviz" /-->
+
+</launch>

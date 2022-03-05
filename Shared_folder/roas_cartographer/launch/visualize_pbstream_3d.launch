@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<launch>
+
+  <node name="cartographer_node" pkg="cartographer_ros" type="cartographer_node" 
+        args="-configuration_directory $(find roas_cartographer)/config
+              -configuration_basename visualize_pbstream.lua
+              -load_state_filename $(arg pbstream_filename) 
+              -load_frozen_state=false 
+              -start_trajectory_with_default_topics=false" output="screen">
+  </node>
+
+</launch>

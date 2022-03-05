@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<launch>
+
+  <!-- Run Map Server -->
+  <node name="map_server" pkg="map_server" type="map_server" args="$(find jackal_navigation)/maps/kist_test.yaml">
+    <remap from="map" to="global_map" />
+  </node>
+
+  <!--node pkg="roas_bringup" type="auto_clear_costmap_node" name="clear_costmap_service" /-->
+
+  <!-- Run AMCL -->
+  <include file="$(find roas_cartographer)/launch/3d_localization.launch"/>
+
+  <!-- Run Move Base -->
+  <include file="$(find jackal_navigation)/launch/move_base_3d.launch"/>
+
+  <!--node name="rviz" pkg="rviz" type="rviz" required="true" args="-d $(find roas_cartographer)/rviz/3d_nav.rviz" /-->
+
+</launch>

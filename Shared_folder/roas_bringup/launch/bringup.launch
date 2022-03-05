@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<launch>
+  <!-- Intel Realsense -->
+  <include file="$(find roas_bringup)/launch/include/d435.launch"/>
+
+  <!-- Ouster Sensor -->
+  <include file="$(find roas_bringup)/launch/include/os1.launch"/>
+
+  <!-- 3DM-GX5-25 imu Sensor-->
+  <include file="$(find microstrain_mips)/launch/microstrain.launch"/>
+
+</launch>
