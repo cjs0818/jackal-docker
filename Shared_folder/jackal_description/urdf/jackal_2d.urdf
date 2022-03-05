@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="jackal">
+
+  <link name="base_link"/>
+
+  <link name="chassis_link"/>
+
+  <joint name="base_link_joint" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0" />
+    <parent link="base_link"/>
+    <child link="chassis_link" />
+  </joint>
+
+  <link name="imu_link"/>
+
+  <joint name="imu_joint" type="fixed">
+    <origin xyz="0 -0.1 0.145" rpy="0 0 0"/>
+    <parent link="chassis_link" />
+    <child link="imu_link" />
+  </joint>
+
+  <link name="mid_mount"/>
+
+  <joint name="mid_mount_joint" type="fixed">
+    <origin xyz="0 0 0.184" />
+    <parent link="chassis_link" />
+    <child link="mid_mount" />
+  </joint>
+
+  <link name="os_sensor"/>
+
+  <joint name="os_sensor_joint" type="fixed">
+    <origin xyz="0 0 0.402" rpy="0 0 0"/>
+    <parent link="base_link"/>
+    <child link="os_sensor"/>
+  </joint>
+
+</robot>

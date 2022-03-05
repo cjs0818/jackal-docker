@@ -41,6 +41,15 @@
     <arg name="config" value="$(arg config)" />
     <arg name="joystick" value="$(arg joystick)" />
   </include>
+
+
+<!--
+  <param name="robot_description" command="$(find xacro)xacro '$(find jackal_description)/urdf/roas.urdf.xacro'"/>
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
+    
+  <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model"
+	      args="-urdf -model jackal -param robot_description" />
+-->
   
   <!-- Fake laser-->
   <group if="$(eval laser_model=='os1-xx')">
