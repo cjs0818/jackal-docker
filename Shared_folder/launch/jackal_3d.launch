@@ -24,15 +24,19 @@
 -->  
 
   <!-- Load Jackal's description, controllers, and teleop nodes. -->
+  
+  <arg name="use_bag_file" default="true" />
   <arg name="joystick" default="true" />
   <arg name="config" default="base" />
-  <include file="$(find jackal_description)/launch/description.launch">
-    <arg name="config" value="$(arg config)" />
-  </include>
-  <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
-    <param name="use_gui" value="false"/>
-  </node>
 
+	<group if="$(arg use_bag_file)" >  
+		<include file="$(find jackal_description)/launch/description.launch">
+		  <arg name="config" value="$(arg config)" />
+		</include>
+		<node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
+		  <param name="use_gui" value="false"/>
+		</node>
+	</group>
 
 
 

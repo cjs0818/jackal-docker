@@ -15,18 +15,13 @@
 -->
 
 <launch>
-	<arg name="use_bag_file" default="true" />
-
-  <param name="/use_sim_time" value="true" />
-
-  <include file="$(find cartographer_ros)/launch/jackal_3d.launch" >
-  	<arg name="use_bag_file" value="$(arg use_bag_file)" />
-  </include>
-
-  <node name="rviz" pkg="rviz" type="rviz" required="true"
-      args="-d $(find cartographer_ros)/configuration_files/jackal_3d.rviz" />
-
-	<group if="$(arg use_bag_file)">
-	  <node name="playbag" pkg="rosbag" type="play" args="--clock $(arg bag_filename)" />
-	</group>
+  <node name="cartographer_assets_writer" pkg="cartographer_ros" required="true"
+      type="cartographer_assets_writer" args="
+          -configuration_directory $(find cartographer_ros)/configuration_files
+          -configuration_basename assets_writer_jackal_3d.lua
+          -urdf_filename $(find cartographer_ros)/urdf/jackal_3d.urdf
+          -bag_filenames $(arg bag_filenames)
+          -pose_graph_filename $(arg pose_graph_filename)"
+      output="screen">
+  </node>
 </launch>
