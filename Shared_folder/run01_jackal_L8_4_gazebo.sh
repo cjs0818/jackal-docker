@@ -16,7 +16,6 @@ export CARTO_DIR="/opt/cartographer_ros/share/cartographer_ros"
 
 #sudo cp $SF_DIR/jackal/jackal_description/urdf/accessories.urdf.xacro /opt/ros/$ROS_DISTRO/share/jackal_description/urdf/
 sudo cp -R $SF_DIR/jackal_description/* /opt/ros/$ROS_DISTRO/share/jackal_description/
-#sudo cp $SF_DIR/jackal/jackal_navigation/launch/include/pointcloud_to_laserscan_rc.launch /opt/ros/$ROS_DISTRO/share/jackal_navigation/launch/include/
 sudo cp $SF_DIR/jackal_navigation/launch/include/pointcloud_to_laserscan_rc.launch /opt/ros/$ROS_DISTRO/share/jackal_navigation/launch/include/
 
 #---- For gazebo world: 4h floor, L8 buildig with jackal

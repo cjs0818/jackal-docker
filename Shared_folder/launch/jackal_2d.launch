@@ -34,16 +34,24 @@
   </node>
 
 
+  <!-- Fake laser-->
+<!--  
+	<include file="$(find jackal_navigation)/launch/include/pointcloud_to_laserscan_rc.launch"/>
+-->	
+	
 
   <node name="cartographer_node" pkg="cartographer_ros"
       type="cartographer_node" args="
           -configuration_directory $(find cartographer_ros)/configuration_files
           -configuration_basename jackal_2d.lua"
       output="screen">
-<!--      
-    <remap from="echoes" to="horizontal_laser_2d" />
--->
-    <remap from="scan" to="front/scan" />
+
+    <remap from="points2" to="os1_cloud_node/points" />
+<!--
+    <remap from="imu" to="os1_cloud_node/imu" />
+-->    
+    <remap from="odom" to="jackal_velocity_controller/odom" />
+
   </node>
 
   <node name="cartographer_occupancy_grid_node" pkg="cartographer_ros"

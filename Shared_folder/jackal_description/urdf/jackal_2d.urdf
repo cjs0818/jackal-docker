@@ -27,12 +27,12 @@
     <child link="mid_mount" />
   </joint>
 
-  <link name="os_sensor"/>
+  <link name="os1_lidar"/>
 
   <joint name="os_sensor_joint" type="fixed">
-    <origin xyz="0 0 0.402" rpy="0 0 0"/>
+    <origin xyz="0 0 0.438" rpy="0 0 0"/>
     <parent link="base_link"/>
-    <child link="os_sensor"/>
+    <child link="os1_lidar"/>
   </joint>
 
 </robot>
