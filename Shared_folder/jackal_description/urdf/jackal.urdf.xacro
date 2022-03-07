@@ -276,6 +276,11 @@
   <!-- Optional for Clearpath internal softwares -->
   <xacro:include filename="$(optenv CPR_URDF_EXTRAS empty.urdf)" />
 
+	<xacro:if value="$(optenv ROAS_URDF_XACRO 0)">
+		<include filename="$(find jackal_description)/urdf/roas.urdf.xacro" />
+	</xacro:if>
+	<!--
   <xacro:include filename="$(find jackal_description)/urdf/roas.urdf.xacro" />
+  -->
 
 </robot>
