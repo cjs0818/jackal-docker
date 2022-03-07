@@ -1,0 +1,23 @@
+<launch>
+
+  <arg name="use_map_topic" default="false"/>
+  <arg name="scan_topic" default="$(eval optenv('JACKAL_LASER_TOPIC', 'front/scan'))" />
+  <arg name="laser_min_range" default="0.1" />
+  <arg name="laser_max_range" default="30.0" />
+
+  <!-- Run the map server -->
+ <arg name="map_file" default="$(find jackal_navigation)/maps/jackal_race.yaml"/>
+ <node name="map_server" pkg="map_server" type="map_server" args="$(arg map_file)" />
+
+  <!--- Run AMCL -->
+  <include file="$(find jackal_navigation)/launch/include/amcl.launch">
+    <arg name="use_map_topic" value="$(arg use_map_topic)" />
+    <arg name="scan_topic"    value="$(arg scan_topic)" />
+    <param name="laser_min_range" value="$(arg laser_min_range)" />
+    <param name="laser_max_range" value="$(arg laser_max_range)" />    
+  </include>
+
+  <!--- Run Move Base -->
+ <include file="$(find jackal_navigation)/launch/include/move_base.launch" />
+
+</launch>
