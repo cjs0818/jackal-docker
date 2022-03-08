@@ -4,7 +4,9 @@ image: /root/Shared_folder/KIST_map/L8_4.pgm
 # 42.287m / 3350 pixel
 resolution: 0.012600
 
-origin: [-18.199440, -9.282446, 0.000000]
+#rigin: [-18.199440, -9.282446, 0.000000]
+origin: [-22, -15.5, 0.000000]
+
 negate: 0
 occupied_thresh: 0.65
 free_thresh: 0.196

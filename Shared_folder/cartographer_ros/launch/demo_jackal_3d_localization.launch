@@ -16,13 +16,16 @@
 
 <launch>
 
+	<arg name="bag_filename" default="" />
+	
   <param name="/use_sim_time" value="true" />
 
-  <param name="robot_description"
-    textfile="$(find cartographer_ros)/urdf/jackal_3d.urdf" />
-
-  <node name="robot_state_publisher" pkg="robot_state_publisher"
-    type="robot_state_publisher" />
+	<group unless="$(eval arg('bag_filename')=='')" >
+		<param name="robot_description"
+		  textfile="$(find cartographer_ros)/urdf/jackal_3d.urdf" />
+		<node name="robot_state_publisher" pkg="robot_state_publisher"
+		  type="robot_state_publisher" />
+	</group>
 
   <node name="cartographer_node" pkg="cartographer_ros"
       type="cartographer_node" args="
@@ -40,6 +43,9 @@
 
   <node name="rviz" pkg="rviz" type="rviz" required="true"
       args="-d $(find cartographer_ros)/configuration_files/jackal_3d.rviz" />
-  <node name="playbag" pkg="rosbag" type="play"
-      args="--clock $(arg bag_filename)" />
+      
+	<group unless="$(eval arg('bag_filename')=='')" >
+		<node name="playbag" pkg="rosbag" type="play"
+		    args="--clock $(arg bag_filename)" />
+  </group>
 </launch>

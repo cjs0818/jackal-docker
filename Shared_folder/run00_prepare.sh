@@ -32,6 +32,7 @@ sudo cp -R $SF_DIR/jackal_description/* `rospack find jackal_description`/
 #----- Modification in jackal_navigation
 # amcl_demo.launch for navigation
 sudo cp $SF_DIR/jackal_navigation/launch/amcl_demo.launch `rospack find jackal_navigation`/launch/
+sudo cp $SF_DIR/jackal_navigation/launch/include/amcl.launch `rospack find jackal_navigation`/launch/include/
 
 # pointcloud_to_laserscan_rc.launch for 2D lidar simulation from 3D lidar
 sudo cp $SF_DIR/jackal_navigation/launch/include/pointcloud_to_laserscan_rc.launch `rospack find jackal_navigation`/launch/include/
@@ -49,6 +50,7 @@ cp $SF_DIR/cartographer_ros/launch/$MY_ROBOT.launch $CARTO_DIR/launch/
 cp $SF_DIR/cartographer_ros/launch/demo_${MY_ROBOT}.launch $CARTO_DIR/launch/
 cp $SF_DIR/cartographer_ros/launch/demo_${MY_ROBOT}_online.launch $CARTO_DIR/launch/
 cp $SF_DIR/cartographer_ros/launch/demo_${MY_ROBOT}_localization.launch $CARTO_DIR/launch/
+cp $SF_DIR/cartographer_ros/urdf/$MY_ROBOT.urdf $CARTO_DIR/urdf/
 cp $SF_DIR/cartographer_ros/launch/offline_$MY_ROBOT.launch $CARTO_DIR/launch/
 cp $SF_DIR/cartographer_ros/launch/offline_node.launch $CARTO_DIR/launch/
 
@@ -63,7 +65,7 @@ cp $SF_DIR/jackal_gazebo/launch/$GZ_LAUNCH_FILE `rospack find jackal_gazebo`/lau
 
 #----- Modification in roas software
 # For roas_cartographer
-cp -R $SF_DIR/roas_cartographer $HOME/catkin_ws/src/
+#cp -R $SF_DIR/roas_nav/roas_cartographer $HOME/catkin_ws/src/
 
 # assets_writer: from pbstream/bag_filenames xray png files (xy, xz, yz)
 cp $SF_DIR/cartographer_ros/launch/assets_writer_${MY_ROBOT}.launch $CARTO_DIR/launch/

@@ -13,10 +13,14 @@
 #roslaunch cartographer_ros demo_$MY_ROBOT.launch use_bag_file:=false
 #roslaunch cartographer_ros demo_$MY_ROBOT.launch bag_filename:=$BASE_DIR/$BAG_FILE
 #roslaunch cartographer_ros offline_$MY_ROBOT.launch bag_filenames:=$BASE_DIR/$BAG_FILE
+
 roslaunch cartographer_ros demo_${MY_ROBOT}_localization.launch \
           load_state_filename:=$BASE_DIR/$BAG_FILE.pbstream \
           bag_filename:=$BASE_DIR/$BAG_FILE
 
+	# -- For localization with gazebo not with ros bag file
+	#roslaunch cartographer_ros demo_${MY_ROBOT}_localization.launch \
+	#          load_state_filename:=$BASE_DIR/$BAG_FILE.pbstream
 
 
 #--  Convert from pbstream to pgm & yaml 
