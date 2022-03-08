@@ -15,9 +15,14 @@
 -->
 
 <launch>
-  <param name="/use_sim_time" value="true" />
+	<arg name="use_bag_file" default="true" />
 
-  <include file="$(find cartographer_ros)/launch/jackal_2d.launch" />
+  <param name="/use_sim_time" value="true" />
+  <arg name="config" default="roas" />
+
+  <include file="$(find cartographer_ros)/launch/jackal_2d.launch" >
+  	<arg name="config" value="$(arg config)" />
+  </include>
 
   <node name="rviz" pkg="rviz" type="rviz" required="true"
       args="-d $(find cartographer_ros)/configuration_files/jackal_2d.rviz" />

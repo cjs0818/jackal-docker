@@ -1,12 +1,5 @@
-export SF_DIR=~/Shared_folder
-export GZ_LAUNCH_FILE=turtlebot3_L8_4_gazebo.launch
-export GZ_WORLD_FILE=L8_4_gazebo.world
-
-export MY_ROBOT=my_robot
-export CARTO_DIR=/opt/cartographer_ros/share/cartographer_ros
-
-
-cp $SF_DIR/jackal_navigation/launch/amcl_demo.launch /opt/ros/melodic/share/jackal_navigation/launch/
+. run00_prepare.sh
+#cp $SF_DIR/jackal_navigation/launch/amcl_demo.launch /opt/ros/melodic/share/jackal_navigation/launch/
 
 #---- For navigation
 #roslaunch jackal_navigation amcl_demo.launch map_file:=$SF_DIR/KIST_map/map.yaml

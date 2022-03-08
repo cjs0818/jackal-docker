@@ -1,13 +1,17 @@
 <?xml version="1.0"?>
 
 <launch>
-$SF_DIR/worlds
+
+	<arg name="config" default="base" />
+
+	
 	<include file="$(find jackal_gazebo)/launch/jackal_world.launch" >
 		<arg name="world_name" value="/root/Shared_folder/worlds/L8_4_gazebo.world" />
 		<arg name="x_pos" value="-8.5" />
 		<arg name="y_pos" value="7.7" />
 		<arg name="z_pos" value="1.0" />
 		<arg name="yaw" value="0" />
+		<arg name="config" value="roas" />
 	</include>
 
 
@@ -17,6 +21,7 @@ $SF_DIR/worlds
 
 	<include file="$(find cartographer_ros)/launch/demo_jackal_3d.launch">
 		<arg name="use_bag_file" value="false"/>
+		<arg name="config" value="$(arg config)" />		
 	</include>
 	
 
