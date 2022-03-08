@@ -18,11 +18,16 @@
 
   <param name="/use_sim_time" value="true" />
 
-  <param name="robot_description"
-    textfile="$(find cartographer_ros)/urdf/jackal_2d.urdf" />
+  <arg name="bag_filename" default="" />
+  <arg name="load_state_filename" default="" />
 
-  <node name="robot_state_publisher" pkg="robot_state_publisher"
-    type="robot_state_publisher" />
+	<group unless="$(eval arg('bag_filename')=='')" >
+	  <param name="robot_description"
+  	  textfile="$(find cartographer_ros)/urdf/jackal_2d.urdf" />
+
+  	<node name="robot_state_publisher" pkg="robot_state_publisher"
+  	  type="robot_state_publisher" />
+  </group>
 
   <node name="cartographer_node" pkg="cartographer_ros"
       type="cartographer_node" args="

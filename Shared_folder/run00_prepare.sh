@@ -53,6 +53,7 @@ cp $SF_DIR/cartographer_ros/launch/demo_${MY_ROBOT}_localization.launch $CARTO_D
 cp $SF_DIR/cartographer_ros/urdf/$MY_ROBOT.urdf $CARTO_DIR/urdf/
 cp $SF_DIR/cartographer_ros/launch/offline_$MY_ROBOT.launch $CARTO_DIR/launch/
 cp $SF_DIR/cartographer_ros/launch/offline_node.launch $CARTO_DIR/launch/
+cp $SF_DIR/cartographer_ros/launch/nav_${MY_ROBOT}_localization.launch $CARTO_DIR/launch/
 
 cp $SF_DIR/cartographer_ros/configuration_files/$MY_ROBOT.lua $CARTO_DIR/configuration_files/
 cp $SF_DIR/cartographer_ros/configuration_files/${MY_ROBOT}_localization.lua $CARTO_DIR/configuration_files/

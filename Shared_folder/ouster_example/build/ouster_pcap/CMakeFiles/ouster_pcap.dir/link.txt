@@ -1,0 +1,2 @@
+/usr/bin/ar qc libouster_pcap.a  CMakeFiles/ouster_pcap.dir/src/os_pcap.cpp.o
+/usr/bin/ranlib libouster_pcap.a

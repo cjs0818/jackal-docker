@@ -1,0 +1,14 @@
+/root/Shared_folder/ouster_example/build/CMakeFiles/rebuild_cache.dir
+/root/Shared_folder/ouster_example/build/CMakeFiles/edit_cache.dir
+/root/Shared_folder/ouster_example/build/ouster_client/CMakeFiles/rebuild_cache.dir
+/root/Shared_folder/ouster_example/build/ouster_client/CMakeFiles/edit_cache.dir
+/root/Shared_folder/ouster_example/build/ouster_client/CMakeFiles/ouster_client_example.dir
+/root/Shared_folder/ouster_example/build/ouster_client/CMakeFiles/ouster_client.dir
+/root/Shared_folder/ouster_example/build/ouster_client/CMakeFiles/generate_build_header.dir
+/root/Shared_folder/ouster_example/build/ouster_pcap/CMakeFiles/rebuild_cache.dir
+/root/Shared_folder/ouster_example/build/ouster_pcap/CMakeFiles/ouster_pcap.dir
+/root/Shared_folder/ouster_example/build/ouster_pcap/CMakeFiles/edit_cache.dir
+/root/Shared_folder/ouster_example/build/ouster_viz/CMakeFiles/rebuild_cache.dir
+/root/Shared_folder/ouster_example/build/ouster_viz/CMakeFiles/edit_cache.dir
+/root/Shared_folder/ouster_example/build/ouster_viz/CMakeFiles/ouster_viz.dir
+/root/Shared_folder/ouster_example/build/ouster_viz/CMakeFiles/simple_viz.dir

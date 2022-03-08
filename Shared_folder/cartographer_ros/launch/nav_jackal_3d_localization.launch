@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+
+<launch>
+
+	<!--  Gazebo  -->
+
+	<include file="$(find jackal_gazebo)/launch/$(env GZ_LAUNCH_FILE)">
+		<arg name="config" value="roas" />
+		<arg name="points_to_scan" value="true" />
+		<arg name="world_name" value="$(env SF_DIR)/worlds/$(env GZ_WORLD_FILE)" />
+		<arg name="x_pos" value="-8.5" />
+		<arg name="y_pos" value="7.7" />
+		<arg name="z_pos" value="1.0" />
+		<arg name="yaw" value="0.0" />
+	</include>
+
+
+	<!-- Navigation -->
+	<!--
+		#roslaunch jackal_navigation amcl_demo.launch map_file:=$SF_DIR/KIST_map/L8_4.yaml laser_min_range:=0.9 laser_max_range:=35.0 initial_pose_x:=-8.5 initial_pose_y:=7.7 initial_pose_z:=0.0
+	-->
+
+
+	<!-- Cartographer SLAM: localization only -->
+	<include file="$(find cartographer_ros)/launch/demo_$(env MY_ROBOT)_localization.launch">
+		<arg name="load_state_filename" value="$(env BASE_DIR)/$(env BAG_FILE).pbstream" />		
+	</include>
+
+
+</launch>

@@ -21,11 +21,14 @@
   <arg name="config" default="roas" />
 
   <include file="$(find cartographer_ros)/launch/jackal_2d.launch" >
+		<arg name="use_bag_file" value="$(arg use_bag_file)" />
   	<arg name="config" value="$(arg config)" />
   </include>
 
   <node name="rviz" pkg="rviz" type="rviz" required="true"
       args="-d $(find cartographer_ros)/configuration_files/jackal_2d.rviz" />
-  <node name="playbag" pkg="rosbag" type="play"
-      args="--clock $(arg bag_filename)" />
+      
+	<group if="$(arg use_bag_file)">
+  	<node name="playbag" pkg="rosbag" type="play" args="--clock $(arg bag_filename)" />
+	</group>
 </launch>
