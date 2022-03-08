@@ -45,16 +45,16 @@ sudo cp $SF_DIR/jackal_viz/rviz/navigation.rviz `rospack find jackal_viz`/rviz/
 
 #----- Modification in cartographer_ros
 # For cartographer map_building & localization only
-cp $SF_DIR/launch/$MY_ROBOT.launch $CARTO_DIR/launch/
-cp $SF_DIR/launch/demo_${MY_ROBOT}.launch $CARTO_DIR/launch/
-cp $SF_DIR/launch/demo_${MY_ROBOT}_online.launch $CARTO_DIR/launch/
-cp $SF_DIR/launch/demo_${MY_ROBOT}_localization.launch $CARTO_DIR/launch/
-cp $SF_DIR/launch/offline_$MY_ROBOT.launch $CARTO_DIR/launch/
-cp $SF_DIR/launch/offline_node.launch $CARTO_DIR/launch/
+cp $SF_DIR/cartographer_ros/launch/$MY_ROBOT.launch $CARTO_DIR/launch/
+cp $SF_DIR/cartographer_ros/launch/demo_${MY_ROBOT}.launch $CARTO_DIR/launch/
+cp $SF_DIR/cartographer_ros/launch/demo_${MY_ROBOT}_online.launch $CARTO_DIR/launch/
+cp $SF_DIR/cartographer_ros/launch/demo_${MY_ROBOT}_localization.launch $CARTO_DIR/launch/
+cp $SF_DIR/cartographer_ros/launch/offline_$MY_ROBOT.launch $CARTO_DIR/launch/
+cp $SF_DIR/cartographer_ros/launch/offline_node.launch $CARTO_DIR/launch/
 
-cp $SF_DIR/configuration_files/$MY_ROBOT.lua $CARTO_DIR/configuration_files/
-cp $SF_DIR/configuration_files/${MY_ROBOT}_localization.lua $CARTO_DIR/configuration_files/
-cp $SF_DIR/configuration_files/$MY_ROBOT.rviz $CARTO_DIR/configuration_files/
+cp $SF_DIR/cartographer_ros/configuration_files/$MY_ROBOT.lua $CARTO_DIR/configuration_files/
+cp $SF_DIR/cartographer_ros/configuration_files/${MY_ROBOT}_localization.lua $CARTO_DIR/configuration_files/
+cp $SF_DIR/cartographer_ros/configuration_files/$MY_ROBOT.rviz $CARTO_DIR/configuration_files/
 
 #----- Modification in jackal_gazebo
 # jackal_world.launch
@@ -66,7 +66,7 @@ cp $SF_DIR/jackal_gazebo/launch/$GZ_LAUNCH_FILE `rospack find jackal_gazebo`/lau
 cp -R $SF_DIR/roas_cartographer $HOME/catkin_ws/src/
 
 # assets_writer: from pbstream/bag_filenames xray png files (xy, xz, yz)
-cp $SF_DIR/launch/assets_writer_${MY_ROBOT}.launch $CARTO_DIR/launch/
-cp $SF_DIR/configuration_files/assets_writer_${MY_ROBOT}.lua $CARTO_DIR/configuration_files/
+cp $SF_DIR/cartographer_ros/launch/assets_writer_${MY_ROBOT}.launch $CARTO_DIR/launch/
+cp $SF_DIR/cartographer_ros/configuration_files/assets_writer_${MY_ROBOT}.lua $CARTO_DIR/configuration_files/
 
 

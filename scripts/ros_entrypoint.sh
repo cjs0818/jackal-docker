@@ -27,7 +27,7 @@ echo ". /opt/ros/${ROS_DISTRO}/setup.bash" >> ~/.bashrc
 #echo ". /opt/cartographer_ros/setup.bash" >> ~/.bashrc
 echo ". ~/catkin_ws/devel/setup.bash" >> ~/.bashrc
 #echo "export TURTLEBOT3_MODEL=waffle" >> ~/.bashrc
-echo "export GAZEBO_MODEL_PATH=~/Shared_folder/models" >> ~/.bashrc
+echo "export GAZEBO_MODEL_PATH=~/Shared_folder/KIST_map/models" >> ~/.bashrc
 echo " " >> ~/.bashrc
 
 echo "#---------------------------------" >> ~/.bashrc
