@@ -14,4 +14,3 @@ rosrun cartographer_ros cartographer_pbstream_to_ros_map \
        -pbstream_filename=$BASE_DIR/$BAG_FILE.pbstream \
        -map_filestem=$BASE_DIR/KIST_map/$ROS_MAP
 
-#-

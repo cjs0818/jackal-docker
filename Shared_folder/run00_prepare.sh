@@ -22,7 +22,11 @@ export MAP_FILESTEM=jackal_L8_4
 export BASE_DIR_host=$HOME/work/Docker/jackal-docker/Shared_folder
 
 
+#----- Gazebo config.yaml
+sudo cp $SF_DIR/gazebo_config/config.yaml ~/.ignition/fuel/
 
+#----- jackal_control control.yaml
+sudo cp $SF_DIR/jackal_control/config/control.yaml `rospack find jackal_control`/config/
 
 #----- Modification in jackal_description
 # urdf, urdf/configs, urdf/include ...
